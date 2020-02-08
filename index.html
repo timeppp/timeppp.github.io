@@ -79,7 +79,7 @@
 			$("#code").typewriter();
 		}
 	</script>
-<audio id="main_audio" autoplay="autoplay" preload="auto" loop="">
+<audio id="main_audio" preload="auto" loop="">
 	<source src="./爱心计时表白网页_files/如果的事.mp3" type="audio/mpeg">
 <embed id="main_audio_ie8" hidden="true" autostart="true" height="0" width="0" loop="true" src="" autoplay="autoplay">
 </audio>
@@ -93,5 +93,36 @@ var _hmt = _hmt || [];
   var s = document.getElementsByTagName("script")[0]; 
   s.parentNode.insertBefore(hm, s);
 })();
+function audioAutoPlay(id){
+
+var audio = document.getElementById(id),
+
+play = function(){
+
+audio.play();
+
+document.removeEventListener("touchstart",play, false);
+
+};
+
+audio.play();
+
+document.addEventListener("WeixinJSBridgeReady", function () {
+
+play();
+
+}, false);
+
+document.addEventListener('YixinJSBridgeReady', function() {
+
+play();
+
+}, false);
+
+document.addEventListener("touchstart",play, false);
+
+}
+
+audioAutoPlay('main_audio');
 </script></div>
 </div></div></body></html>
